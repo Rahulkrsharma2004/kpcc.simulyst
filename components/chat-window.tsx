@@ -77,6 +77,7 @@ export function ChatWindow() {
         <Input
           placeholder="Ask about sentiment trends, specific topics, or data insights..."
           value={input}
+          className="border border-gray-500"
           onChange={(e) => setInput(e.target.value)}
           onKeyPress={(e) => e.key === "Enter" && handleSend()}
         />

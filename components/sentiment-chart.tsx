@@ -1,8 +1,16 @@
 "use client"
 
-import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Line, LineChart, Legend } from "recharts"
+import {
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  Line,
+  LineChart,
+  Legend,
+} from "recharts"
 import { useSentimentData } from "@/hooks/use-sentiment-data"
-import { SENTIMENT_COLORS } from "@/constants/dashboard"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
@@ -13,7 +21,10 @@ interface SentimentChartProps {
   filters?: FilterState
 }
 
-export function SentimentChart({ timeframe, filters = { source: "all", region: "all" } }: SentimentChartProps) {
+export function SentimentChart({
+  timeframe,
+  filters = { source: "all", region: "all" },
+}: SentimentChartProps) {
   const { data, loading, error } = useSentimentData(filters)
 
   if (loading) {
@@ -41,33 +52,45 @@ export function SentimentChart({ timeframe, filters = { source: "all", region: "
         <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
           <XAxis dataKey="date" className="text-xs" />
-          <YAxis className="text-xs" label={{ value: "% of Posts", angle: -90, position: "insideLeft" }} />
+          <YAxis
+            className="text-xs"
+            label={{ value: "% of Posts", angle: -90, position: "insideLeft" }}
+          />
           <Tooltip
-            formatter={(value: number, name: string) => [`${value}%`, name.charAt(0).toUpperCase() + name.slice(1)]}
+            formatter={(value: number, name: string) => [
+              `${value}%`,
+              name.charAt(0).toUpperCase() + name.slice(1),
+            ]}
           />
           <Legend />
+
+          {/* Positive → Green */}
           <Line
             type="monotone"
             dataKey="positive"
-            stroke={SENTIMENT_COLORS.positive}
-            strokeWidth={2}
-            dot={{ fill: SENTIMENT_COLORS.positive, strokeWidth: 2, r: 4 }}
+            stroke="green"
+            strokeWidth={4}
+            dot={{ fill: "green", strokeWidth: 2, r: 4 }}
             name="Positive"
           />
+
+          {/* Negative → Red */}
           <Line
             type="monotone"
             dataKey="negative"
-            stroke={SENTIMENT_COLORS.negative}
-            strokeWidth={2}
-            dot={{ fill: SENTIMENT_COLORS.negative, strokeWidth: 2, r: 4 }}
+            stroke="red"
+            strokeWidth={4}
+            dot={{ fill: "red", strokeWidth: 2, r: 4 }}
             name="Negative"
           />
+
+          {/* Neutral → Gray */}
           <Line
             type="monotone"
             dataKey="neutral"
-            stroke={SENTIMENT_COLORS.neutral}
-            strokeWidth={2}
-            dot={{ fill: SENTIMENT_COLORS.neutral, strokeWidth: 2, r: 4 }}
+            stroke="gray"
+            strokeWidth={4}
+            dot={{ fill: "gray", strokeWidth: 2, r: 4 }}
             name="Neutral"
           />
         </LineChart>

@@ -16,10 +16,10 @@ export function DashboardHeader() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <Badge variant="secondary" className="text-xs">
+            {/* <Badge variant="secondary" className="text-xs">
               Live Data
-            </Badge>
-            <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+            </Badge> */}
+            {/* <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" /> */}
           </div>
         </div>
       </div>

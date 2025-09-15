@@ -26,7 +26,7 @@ export function DashboardFilters({ filters, onFiltersChange }: DashboardFiltersP
           </div>
 
           <Select value={filters.source} onValueChange={(value) => onFiltersChange({ source: value })}>
-            <SelectTrigger className="w-40">
+            <SelectTrigger className="w-40 cursor-pointer hover:border-gray-400">
               <SelectValue placeholder="Source" />
             </SelectTrigger>
             <SelectContent>
@@ -39,7 +39,7 @@ export function DashboardFilters({ filters, onFiltersChange }: DashboardFiltersP
           </Select>
 
           <Select value={filters.region} onValueChange={(value) => onFiltersChange({ region: value })}>
-            <SelectTrigger className="w-40">
+            <SelectTrigger className="w-40 cursor-pointer hover:border-gray-400">
               <SelectValue placeholder="Region" />
             </SelectTrigger>
             <SelectContent>
@@ -57,7 +57,7 @@ export function DashboardFilters({ filters, onFiltersChange }: DashboardFiltersP
                 <Button
                   variant="outline"
                   className={cn(
-                    "w-[140px] justify-start text-left font-normal",
+                    "w-[140px] justify-start text-left font-normal cursor-pointer",
                     !filters.dateFrom && "text-muted-foreground",
                   )}
                 >
@@ -82,7 +82,7 @@ export function DashboardFilters({ filters, onFiltersChange }: DashboardFiltersP
                 <Button
                   variant="outline"
                   className={cn(
-                    "w-[140px] justify-start text-left font-normal",
+                    "w-[140px] justify-start text-left font-normal cursor-pointer",
                     !filters.dateTo && "text-muted-foreground",
                   )}
                 >
