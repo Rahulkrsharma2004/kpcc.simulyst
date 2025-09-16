@@ -3,6 +3,26 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.rdp-nav_button {
+  background: transparent !important;
+  border: none !important;
+  color: rgb(0, 128, 0) !important;
+}
+
+/* Selected day border color */
+.rdp-day.rdp-selected {
+  border: 2px solid #16a34a !important; /* green-600 */
+  color: #16a34a !important;
+}
+
+/* Remove the default blue ring (focus outline) */
+.rdp-day:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px #16a34a !important;
+}
+
+
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
