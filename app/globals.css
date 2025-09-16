@@ -3,6 +3,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.rdpg-nav__button--prev {
+  color: #ef4444; /* Left arrow color */
+}
+
+.rdpg-nav__button--next {
+  color: #10b981; /* Right arrow color */
+}
+
+
 :root {
   /* Updated color tokens for political dashboard theme */
   --background: oklch(1 0 0); /* White background */

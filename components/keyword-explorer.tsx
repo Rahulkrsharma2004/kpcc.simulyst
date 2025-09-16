@@ -29,6 +29,7 @@ export function KeywordExplorer() {
         <Input
           placeholder="Search for keywords (e.g., 'power cuts', 'Anna Bhagya')"
           value={searchTerm}
+          className="border border-gray-300"
           onChange={(e) => setSearchTerm(e.target.value)}
           onKeyPress={(e) => e.key === "Enter" && handleSearch()}
         />

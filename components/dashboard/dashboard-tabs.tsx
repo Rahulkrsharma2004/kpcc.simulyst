@@ -8,7 +8,7 @@ interface DashboardTabsProps {
 
 export function DashboardTabs({ activeTab, onTabChange }: DashboardTabsProps) {
   return (
-    <TabsList className="grid w-full grid-cols-5 lg:w-fit lg:grid-cols-5 gap-2">
+    <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 lg:w-fit lg:grid-cols-5">
       <TabsTrigger
         value="overview"
         className="flex items-center gap-2 cursor-pointer rounded-md transition hover:border hover:border-muted-foreground hover:shadow-sm"
